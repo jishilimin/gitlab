@@ -1,7 +1,8 @@
 .panel.panel-default
   .panel-heading
-    群组成员有权访问
+    有权访问
     %strong #{@group.name}
+    的成员
     %span.badge= members.size
     - if can?(current_user, :admin_group_member, @group)
       .controls

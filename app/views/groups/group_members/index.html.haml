@@ -23,8 +23,9 @@
           = icon("search")
   .panel.panel-default
     .panel-heading
-      用户可访问
+      有权访问
       %strong #{@group.name}
+      的成员
       %span.badge= @members.total_count
     %ul.content-list
       = render partial: 'shared/members/member', collection: @members, as: :member

@@ -30,8 +30,8 @@
           = render "shared/issuable/label_dropdown", selected: finder.labels.select(:title).uniq, use_id: false, selected_toggle: params[:label_name], data_options: { field_name: "label_name[]" }
 
         - if issuable_filters_present
-        .filter-item.inline.reset-filters
-          %a{href: page_filter_path(without: [:assignee_id, :author_id, :milestone_title, :label_name, :search])} 重置过滤器
+          .filter-item.inline.reset-filters
+            %a{href: page_filter_path(without: [:assignee_id, :author_id, :milestone_title, :label_name, :search])} 重置过滤器
 
         .pull-right
           - if boards_page

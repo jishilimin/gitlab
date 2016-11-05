@@ -91,7 +91,10 @@ module IssuablesHelper
 
   def issuables_state_counter_text(issuable_type, state)
     titles = {
-      opened: "Open"
+      opened: "未关闭",
+      closed: "已关闭",
+      merged: "已合并",
+      all: "所有"
     }
 
     state_title = titles[state] || state.to_s.humanize

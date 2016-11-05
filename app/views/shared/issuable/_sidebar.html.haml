@@ -80,7 +80,7 @@
             %span.js-due-date-sidebar-value
               = issuable.due_date.try(:to_s, :medium) || '无'
           .title.hide-collapsed
-            截至日期
+            截止日期
             = icon('spinner spin', class: 'block-loading')
             - if can?(current_user, :"admin_#{issuable.to_ability_name}", @project)
               = link_to '编辑', '#', class: 'edit-link pull-right'
@@ -89,7 +89,7 @@
               - if issuable.due_date
                 %span.bold= issuable.due_date.to_s(:medium)
               - else
-                %span.no-value 没有截至日期
+                %span.no-value 没有截止日期
             - if can?(current_user, :"admin_#{issuable.to_ability_name}", @project)
               %span.no-value.js-remove-due-date-holder{ class: ("hidden" if issuable.due_date.nil?) }
                 \-

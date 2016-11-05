@@ -1,7 +1,7 @@
 - page_title "代码片段"
 
 .sub-header-block
-    - if can?(current_user, :create_project_snippet, @project)
+  - if can?(current_user, :create_project_snippet, @project)
     = link_to new_namespace_project_snippet_path(@project.namespace, @project), class: "btn btn-new btn-wide-on-sm pull-right", title: "新建代码片段" do
       新建代码片段
 

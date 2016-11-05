@@ -16,14 +16,14 @@
         = link_to profile_path, class: 'btn btn-gray' do
           = icon('pencil')
       - elsif current_user
-          - if @user.abuse_report
-            %button.btn.btn-danger{ title: '已被举报',
+        - if @user.abuse_report
+          %button.btn.btn-danger{ title: '已被举报',
             data: { toggle: 'tooltip', placement: 'bottom', container: 'body' }}
-              = icon('exclamation-circle')
-          - else
-            = link_to new_abuse_report_path(user_id: @user.id, ref_url: request.referrer), class: 'btn btn-gray',
+            = icon('exclamation-circle')
+        - else
+          = link_to new_abuse_report_path(user_id: @user.id, ref_url: request.referrer), class: 'btn btn-gray',
             title: '举报滥用', data: {toggle: 'tooltip', placement: 'bottom', container: 'body'} do
-              = icon('exclamation-circle')
+            = icon('exclamation-circle')
       - if current_user
         = link_to user_path(@user, :atom, { private_token: current_user.private_token }), class: 'btn btn-gray' do
           = icon('rss')
@@ -33,43 +33,43 @@
             = icon('users')
 
     .profile-header
-    .avatar-holder
-      = link_to avatar_icon(@user, 400), target: '_blank' do
-        = image_tag avatar_icon(@user, 90), class: "avatar s90", alt: ''
+      .avatar-holder
+        = link_to avatar_icon(@user, 400), target: '_blank' do
+          = image_tag avatar_icon(@user, 90), class: "avatar s90", alt: ''
 
       .user-info
-    .cover-title
-      = @user.name
+        .cover-title
+          = @user.name
 
         .cover-desc.member-date
-      %span.middle-dot-divider
-        @#{@user.username}
-      %span.middle-dot-divider
-        注册时间：#{@user.created_at.to_s(:medium)}
+          %span.middle-dot-divider
+            @#{@user.username}
+          %span.middle-dot-divider
+            注册时间：#{@user.created_at.to_s(:medium)}
 
-      .cover-desc
-      - unless @user.public_email.blank?
-        .profile-link-holder.middle-dot-divider
-          = link_to @user.public_email, "mailto:#{@user.public_email}"
-      - unless @user.skype.blank?
-        .profile-link-holder.middle-dot-divider
-          = link_to "skype:#{@user.skype}", title: "Skype" do
-            = icon('skype')
-      - unless @user.linkedin.blank?
-        .profile-link-holder.middle-dot-divider
-          = link_to "https://www.linkedin.com/in/#{@user.linkedin}", title: "领英" do
-            = icon('linkedin-square')
-      - unless @user.twitter.blank?
-        .profile-link-holder.middle-dot-divider
-          = link_to "https://twitter.com/#{@user.twitter}", title: "推特" do
-            = icon('twitter-square')
-      - unless @user.website_url.blank?
-        .profile-link-holder.middle-dot-divider
-          = link_to @user.short_website_url, @user.full_website_url
-      - unless @user.location.blank?
-        .profile-link-holder.middle-dot-divider
-          = icon('map-marker')
-          = @user.location
+        .cover-desc
+          - unless @user.public_email.blank?
+            .profile-link-holder.middle-dot-divider
+              = link_to @user.public_email, "mailto:#{@user.public_email}"
+          - unless @user.skype.blank?
+            .profile-link-holder.middle-dot-divider
+              = link_to "skype:#{@user.skype}", title: "Skype" do
+                = icon('skype')
+          - unless @user.linkedin.blank?
+            .profile-link-holder.middle-dot-divider
+              = link_to "https://www.linkedin.com/in/#{@user.linkedin}", title: "领英" do
+                = icon('linkedin-square')
+          - unless @user.twitter.blank?
+            .profile-link-holder.middle-dot-divider
+              = link_to "https://twitter.com/#{@user.twitter}", title: "推特" do
+                = icon('twitter-square')
+          - unless @user.website_url.blank?
+            .profile-link-holder.middle-dot-divider
+              = link_to @user.short_website_url, @user.full_website_url
+          - unless @user.location.blank?
+            .profile-link-holder.middle-dot-divider
+              = icon('map-marker')
+              = @user.location
           - unless @user.organization.blank?
             .profile-link-holder.middle-dot-divider
               = icon('building')
