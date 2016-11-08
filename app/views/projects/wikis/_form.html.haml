@@ -27,7 +27,7 @@
           = link_to 'Markdown 文档', help_page_path("user/markdown", anchor: "wiki-specific-markdown")
 
   .form-group
-    = f.label :commit_message, class: 'control-label'
+    = f.label :commit_message, '提交信息', class: 'control-label'
     .col-sm-10= f.text_field :message, class: 'form-control', rows: 18
 
   .form-actions

@@ -18,7 +18,7 @@ module TodosHelper
   end
 
   def todo_target_link(todo)
-    target = todo.target_type.titleize.downcase
+    target = todo.target_type_zh
     link_to "#{target} #{todo.target_reference}", todo_target_path(todo),
       class: 'has-tooltip',
       title: todo.target.title

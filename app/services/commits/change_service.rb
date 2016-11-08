@@ -18,6 +18,17 @@ module Commits
 
     private
 
+    def action_zh(action)
+      case action
+      when :revert
+        "撤销"
+      when :cherry_pick
+        "挑选"
+      else
+        action.to_s.dasherize
+      end
+    end
+
     def commit
       raise NotImplementedError
     end
@@ -34,8 +45,8 @@ module Commits
         repository.public_send(action, current_user, @commit, into, tree_id)
         success
       else
-        error_msg = "Sorry, we cannot #{action.to_s.dasherize} this #{@commit.change_type_title} automatically.
-                     It may have already been #{action.to_s.dasherize}, or a more recent commit may have updated some of its content."
+        error_msg = "很抱歉，我们无法自动 #{action_zh(action)} 此 #{@commit.change_type_title}。
+                     它可能已经被 #{action_zh(action)}, 或者最近的提交已经更新了其中的某些内容。"
         raise ChangeError, error_msg
       end
     end

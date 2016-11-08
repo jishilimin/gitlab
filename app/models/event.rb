@@ -266,8 +266,8 @@ class Event < ActiveRecord::Base
     case target_type
     when "Milestone"
       "里程碑"
-    when "Note"
-      "批注"
+    when "Commit"
+      "提交"
     when "Issue"
       "问题"
     when "MergeRequest"

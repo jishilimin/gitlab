@@ -95,6 +95,21 @@ class Todo < ActiveRecord::Base
     end
   end
 
+  def target_type_zh
+    case target_type
+    when "Milestone"
+      "里程碑"
+    when "Note"
+      "批注"
+    when "Issue"
+      "问题"
+    when "MergeRequest"
+      "合并请求"
+    else
+      target_type
+    end
+  end
+
   def target_reference
     if for_commit?
       target.short_id

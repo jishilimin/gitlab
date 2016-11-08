@@ -72,7 +72,7 @@ module SortingHelper
   end
 
   def sort_title_name
-    '姓名'
+    '名称'
   end
 
   def sort_title_largest_repo
