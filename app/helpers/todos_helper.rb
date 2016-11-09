@@ -130,7 +130,7 @@ module TodosHelper
 
     html = "&middot; ".html_safe
     html << content_tag(:span, class: css_class) do
-      "Due #{is_due_today ? "today" : todo.target.due_date.to_s(:medium)}"
+      "截止日期 #{is_due_today ? "今天" : todo.target.due_date.to_s(:medium)}"
     end
   end
 
