@@ -4,9 +4,8 @@ module LabelsHelper
   # Link to a Label
   #
   # label   - Label object to link to
-  # project - Project object which will be used as the context for the label's
-  #           link. If omitted, defaults to `@project`, or the label's own
-  #           project.
+  # subject - Project/Group object which will be used as the context for the
+  #           label's link. If omitted, defaults to the label's own group/project.
   # type    - The type of item the link will point to (:issue or
   #           :merge_request). If omitted, defaults to :issue.
   # block   - An optional block that will be passed to `link_to`, forming the
@@ -15,21 +14,22 @@ module LabelsHelper
   #
   # Examples:
   #
-  #   # Allow the generated link to use the label's own project
+  #   # Allow the generated link to use the label's own subject
   #   link_to_label(label)
   #
-  #   # Force the generated link to use @project
-  #   @project = Project.first
-  #   link_to_label(label)
+  #   # Force the generated link to use a provided group
+  #   link_to_label(label, subject: Group.last)
   #
   #   # Force the generated link to use a provided project
-  #   link_to_label(label, project: Project.last)
+  #   link_to_label(label, subject: Project.last)
   #
   #   # Force the generated link to point to merge requests instead of issues
   #   link_to_label(label, type: :merge_request)
   #
   #   # Customize link body with a block
   #   link_to_label(label) { "My Custom Label Text" }
+  #
+  # Returns a String
   def link_to_label(label, subject: nil, type: :issue, tooltip: true, css_class: nil, &block)
     link = label_filter_path(subject || label.subject, label, type: type)
 
